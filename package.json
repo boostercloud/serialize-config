@@ -1,0 +1,21 @@
+{
+  "name": "serialize-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@boostercloud/framework-core": "2.6.0",
+    "@boostercloud/framework-types": "2.6.0",
+    "@effect/cli": "^0.32.2",
+    "@effect/platform": "^0.43.11",
+    "@sindresorhus/tsconfig": "^5.0.0",
+    "effect": "^2.2.5",
+    "typescript": "^5.1.6"
+  }
+}
