@@ -1,6 +1,6 @@
-# Serialize Config for Booster Framework Nexus
+# Serialize Config for Booster Framework Injectable
 
-Welcome to the **Serialize Config** component for Booster Framework's Nexus! This indispensable tool streamlines your infrastructure automation by serializing the Booster Config object into a JSON file. It allows for easy extraction of names and type information for your project's commands, events, entities, read models, and more. Serialize Config is perfect for use with automation tools like Terraform, enhancing your development workflow.
+Welcome to the **Serialize Config** component for Booster Framework's Injectable! This indispensable tool streamlines your infrastructure automation by serializing the Booster Config object into a JSON file. It allows for easy extraction of names and type information for your project's commands, events, entities, read models, and more. Serialize Config is perfect for use with automation tools like Terraform, enhancing your development workflow.
 
 ## Features
 
@@ -20,32 +20,32 @@ First, install Serialize Config via npm by running the following command in your
 npm install @boostercloud/serialize-config
 ```
 
-### Configure Nexus
+### Configure Injectable
 
-If you don't already have a Nexus configuration file (`nexus.ts`) in your project, you'll need to create one. Here's how to configure Nexus to use Serialize Config:
+If you don't already have a Injectable configuration file (`injectable.ts`) in your project, you'll need to create one. Here's how to configure Injectable to use Serialize Config:
 
 ```typescript
-// your-app/src/config/nexus.ts
+// your-app/src/config/injectable.ts
 import * as Serialize Config from '@boostercloud/serialize-config'
-import { Nexus } from '@boostercloud/framework-core'
+import { Injectable } from '@boostercloud/framework-core'
 import { NodeContext, Runtime } from '@effect/platform-node'
 
 export default {
   commands: [SerializeConfig.command],
   runMain: Runtime.runMain,
   contextProvider: NodeContext.layer,
-} as Nexus.Nexus
+} as Injectable.Injectable
 ```
 
 ### Modify Your Entry File
 
-To ensure Serialize Config works seamlessly with your Booster project, modify your entry file (`index.ts`) to include the `withNexus` configuration before starting the application:
+To ensure Serialize Config works seamlessly with your Booster project, modify your entry file (`index.ts`) to include the `withInjectable` configuration before starting the application:
 
 ```typescript
 // your-app/src/index.ts
-import nexus from './config/nexus'
+import injectable from './config/injectable'
 
-Booster.withNexus(nexus).start(__dirname)
+Booster.withInjectable(injectable).start(__dirname)
 ```
 
 ## Running Serialize Config

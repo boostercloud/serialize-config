@@ -3,7 +3,7 @@ import { FileSystem } from "@effect/platform/FileSystem";
 import { BoosterConfig, BoosterConfigTag } from "@boostercloud/framework-types";
 import * as path from "path";
 import { Options } from "@effect/cli";
-import * as Nexus from ".";
+import * as Injectable from ".";
 
 export const name = "serialize-config";
 
@@ -16,7 +16,7 @@ export const options = {
   ),
 };
 
-export const handler = Nexus.handler(options, (args) =>
+export const handler = Injectable.handler(options, (args) =>
   Effect.withSpan(`cli/${name}`)(
     Effect.gen(function* (_) {
       const config = yield* _(BoosterConfigTag);
@@ -29,7 +29,7 @@ export const handler = Nexus.handler(options, (args) =>
   )
 );
 
-export const command = Nexus.command(name, options, handler);
+export const command = Injectable.command(name, options, handler);
 
 const extractWritableConfig = (config: BoosterConfig) => ({
   logLevel: config.logLevel,
