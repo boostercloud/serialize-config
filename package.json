@@ -1,15 +1,15 @@
 {
   "name": "@boostercloud/serialize-config",
   "version": "0.1.0",
-  "description": "",
+  "description": "Serialize your Booster Framework configuration",
   "main": "index.js",
   "scripts": {
     "build": "tsc -b tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "The Agile Monkeys",
+  "license": "Apache-2.0",
   "dependencies": {
     "@boostercloud/framework-core": "2.7.0",
     "@boostercloud/framework-types": "2.7.0",
