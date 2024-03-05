@@ -3,7 +3,7 @@ import { FileSystem } from "@effect/platform/FileSystem";
 import { BoosterConfig, BoosterConfigTag } from "@boostercloud/framework-types";
 import * as path from "path";
 import { Options } from "@effect/cli";
-import * as Injectable from ".";
+import * as Injectable from "@boostercloud/framework-core/dist/injectable";
 
 export const name = "serialize-config";
 

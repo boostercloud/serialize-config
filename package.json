@@ -1,21 +1,22 @@
 {
-  "name": "serialize-config",
-  "version": "1.0.0",
+  "name": "@boostercloud/serialize-config",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc -b tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@boostercloud/framework-core": "2.6.0",
-    "@boostercloud/framework-types": "2.6.0",
-    "@effect/cli": "^0.32.2",
-    "@effect/platform": "^0.43.11",
+    "@boostercloud/framework-core": "2.7.0",
+    "@boostercloud/framework-types": "2.7.0",
+    "@effect/cli": "^0.34.2",
+    "@effect/platform": "^0.46.2",
     "@sindresorhus/tsconfig": "^5.0.0",
-    "effect": "^2.2.5",
+    "effect": "^2.4.0",
     "typescript": "^5.1.6"
   }
 }
