@@ -7,8 +7,7 @@ Welcome to the **Serialize Config** component for Booster Framework's Injectable
 - [Features](#features)
 - [Quick Start](#quick-start)
   - [Installation](#installation)
-  - [Configure Injectable](#configure-injectable)
-  - [Modify Your Entry File](#modify-your-entry-file)
+  - [Modify Your Config File](#modify-your-config-file)
 - [Running Serialize Config](#running-serialize-config)
 - [Example: Leveraging Serialize Config for automatic Terraform generation](#example-leveraging-serialize-config-for-automatic-terraform-generation)
   - [Using the CartReadModel JSON for Terraform Preconfiguration](#using-the-cartreadmodel-json-for-terraform-preconfiguration)
@@ -36,32 +35,22 @@ First, install Serialize Config via npm by running the following command in your
 npm install @boostercloud/serialize-config
 ```
 
-### Configure Injectable
+### Modify Your Config File
 
-If you don't already have an Injectable configuration file (`injectable.ts`) in your project, you'll need to create one. Here's how to configure Injectable to use Serialize Config:
-
-```typescript
-// your-app/src/config/injectable.ts
-import * as Serialize Config from '@boostercloud/serialize-config'
-import { Injectable } from '@boostercloud/framework-core'
-import { NodeContext, Runtime } from '@effect/platform-node'
-
-export default {
-  commands: [SerializeConfig.command],
-  runMain: Runtime.runMain,
-  contextProvider: NodeContext.layer,
-} as Injectable.Injectable
-```
-
-### Modify Your Entry File
-
-To ensure Serialize Config works seamlessly with your Booster project, modify your entry file (`index.ts`) to include the `withInjectable` configuration before starting the application:
+To ensure Serialize Config works seamlessly with your Booster project, modify your config file (`src/config/config.ts`) to include the injectable configuration for serialize config like so:
 
 ```typescript
-// your-app/src/index.ts
-import injectable from './config/injectable'
+// your-app/src/config/config.ts
+import * as SerializeConfig from '@boostercloud/serialize-config'
 
-Booster.withInjectable(injectable).start(__dirname)
+Booster.configure('YOUR_ENVIRONMENT_NAME', (config: BoosterConfig): void => {
+  // ... other config
+  config.injectable = {
+    commands: [SerializeConfig.command],
+  }
+})
+
+
 ```
 
 ## Running Serialize Config
@@ -69,7 +58,7 @@ Booster.withInjectable(injectable).start(__dirname)
 Once you've set up Serialize Config in your Booster project, executing it is straightforward. To generate the serialized Booster configuration JSON file, run the following command from your project's root directory:
 
 ```bash
-node dist/index.js serialize-config --help
+boost serialize-config -e YOUR_ENVIRONMENT_NAME
 ```
 
 This command provides you with additional options and usage information for the Serialize Config command.
@@ -77,7 +66,7 @@ This command provides you with additional options and usage information for the 
 By default, the output JSON file will be saved to `.booster/infra-config.json` within your project directory. If you wish to specify a different output location, you can use the `--output` flag followed by your desired path. Here's an example command that demonstrates this:
 
 ```bash
-node dist/index.js serialize-config --output path/to/your/custom-config.json
+boost serialize-config -e local --output path/to/your/custom-config.json
 ```
 
 This flexibility allows you to integrate the serialized configuration seamlessly into your infrastructure automation workflows.
