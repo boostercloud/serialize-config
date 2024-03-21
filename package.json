@@ -12,12 +12,12 @@
   "author": "The Agile Monkeys",
   "license": "Apache-2.0",
   "dependencies": {
-    "@boostercloud/framework-core": "2.7.0",
-    "@boostercloud/framework-types": "2.7.0",
-    "@effect/cli": "^0.34.2",
-    "@effect/platform": "^0.46.2",
+    "@boostercloud/framework-core": "2.8.0",
+    "@boostercloud/framework-types": "2.8.0",
+    "@effect/cli": "^0.35.2",
+    "@effect/platform": "^0.48.3",
     "@sindresorhus/tsconfig": "^5.0.0",
-    "effect": "^2.4.0",
+    "effect": "^2.4.6",
     "typescript": "^5.1.6"
   }
 }
